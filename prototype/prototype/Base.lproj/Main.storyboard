@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,22 +18,36 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lT8-cO-e2C">
-                                <rect key="frame" x="180" y="236" width="240" height="128"/>
-                                <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SV2-rt-OHL">
-                                <rect key="frame" x="277" y="198" width="46" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SV2-rt-OHL">
+                                <rect key="frame" x="277" y="36" width="46" height="30"/>
                                 <animations/>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <action selector="tapButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cIu-Hb-aWc"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lT8-cO-e2C">
+                                <rect key="frame" x="20" y="66" width="560" height="534"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="lT8-cO-e2C" firstAttribute="leading" secondItem="SV2-rt-OHL" secondAttribute="leading" id="2U8-8f-yUg"/>
+                            <constraint firstAttribute="leadingMargin" secondItem="lT8-cO-e2C" secondAttribute="leading" id="5MY-5u-FCQ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lT8-cO-e2C" secondAttribute="bottom" id="BLF-Rd-kXA"/>
+                            <constraint firstItem="SV2-rt-OHL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="BW3-5H-HI3"/>
+                            <constraint firstItem="lT8-cO-e2C" firstAttribute="top" secondItem="SV2-rt-OHL" secondAttribute="bottom" id="Rs6-D9-3TQ"/>
+                            <constraint firstItem="SV2-rt-OHL" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="16" id="seX-bh-h3O"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="lT8-cO-e2C" secondAttribute="trailing" id="zxC-mF-Zij"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="2U8-8f-yUg"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="preview" destination="lT8-cO-e2C" id="t1o-ce-PMn"/>
@@ -40,6 +55,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="371" y="365"/>
         </scene>
     </scenes>
 </document>
