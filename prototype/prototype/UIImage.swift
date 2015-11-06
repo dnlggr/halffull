@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 extension UIImage {
-    func areaAverage() -> UIColor {
+    func average() -> UIColor {
         var bitmap = [UInt8](count: 4, repeatedValue: 0)
         
         if #available(iOS 9.0, *) {
