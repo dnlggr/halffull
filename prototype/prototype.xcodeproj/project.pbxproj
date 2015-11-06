@@ -14,6 +14,7 @@
 		4B4E97EC1BED43EA003A672A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B4E97EA1BED43EA003A672A /* LaunchScreen.storyboard */; };
 		4B4E97F71BED43EA003A672A /* prototypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4E97F61BED43EA003A672A /* prototypeTests.swift */; };
 		4B4E98021BED43EA003A672A /* prototypeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4E98011BED43EA003A672A /* prototypeUITests.swift */; };
+		65D0ADC81BED593C00AA8ED3 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D0ADC71BED593C00AA8ED3 /* UIImage.swift */; settings = {ASSET_TAGS = (); }; };
 		E8D1C7E2509BF2C53A8D158D /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C3E1EA96F16248361E7AC69 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +51,7 @@
 		4B4E97FD1BED43EA003A672A /* prototypeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = prototypeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B4E98011BED43EA003A672A /* prototypeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prototypeUITests.swift; sourceTree = "<group>"; };
 		4B4E98031BED43EA003A672A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		65D0ADC71BED593C00AA8ED3 /* UIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIImage.swift; sourceTree = "<group>"; };
 		7C3E1EA96F16248361E7AC69 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -106,6 +108,7 @@
 			children = (
 				4B4E97E11BED43EA003A672A /* AppDelegate.swift */,
 				4B4E97E31BED43EA003A672A /* ViewController.swift */,
+				65D0ADC71BED593C00AA8ED3 /* UIImage.swift */,
 				4B4E97E51BED43EA003A672A /* Main.storyboard */,
 				4B4E97E81BED43EA003A672A /* Assets.xcassets */,
 				4B4E97EA1BED43EA003A672A /* LaunchScreen.storyboard */,
@@ -220,6 +223,7 @@
 				TargetAttributes = {
 					4B4E97DD1BED43EA003A672A = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = 3JMWW3SW7U;
 					};
 					4B4E97F11BED43EA003A672A = {
 						CreatedOnToolsVersion = 7.1;
@@ -333,6 +337,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				65D0ADC81BED593C00AA8ED3 /* UIImage.swift in Sources */,
 				4B4E97E41BED43EA003A672A /* ViewController.swift in Sources */,
 				4B4E97E21BED43EA003A672A /* AppDelegate.swift in Sources */,
 			);
@@ -476,10 +481,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = prototype/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = self.halffull.prototype;
+				PRODUCT_BUNDLE_IDENTIFIER = self.halffull.prototypeDaniel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
@@ -491,10 +497,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = prototype/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = self.halffull.prototype;
+				PRODUCT_BUNDLE_IDENTIFIER = self.halffull.prototypeDaniel;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 			};
