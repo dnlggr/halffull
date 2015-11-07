@@ -8,6 +8,7 @@
 
 import UIKit
 import CameraManager
+import AVFoundation
 
 class MainViewController: UIViewController {
 
@@ -16,6 +17,7 @@ class MainViewController: UIViewController {
 	private let screen = UIScreen.mainScreen()
 	private var isSensorCovered = false
 	private let notificationCenter = NSNotificationCenter.defaultCenter()
+    private var text: String?
 	
 	@IBOutlet weak var imageView: UIImageView!
 	@IBOutlet weak var fillView: UIView!
@@ -43,14 +45,24 @@ class MainViewController: UIViewController {
 				switch fullness {
                 case 0:
                     self.labelStatus.text = "soo empty"
+                    self.text = "Your beer is so empty. Get another one already!"
+                    self.speek(1)
                 case 1:
                     self.labelStatus.text = "almost empty"
+                    self.text = "Your beer is almost empty. Get another one!"
+                    self.speek(1)
                 case 2:
                     self.labelStatus.text = "looks half full"
+                    self.text = "Your beer is half full. Looking good!"
+                    self.speek(1)
                 case 3:
                     self.labelStatus.text = "looking pretty full"
+                    self.text = "Your beer is pretty full. Cheers!"
+                    self.speek(1)
                 case 4:
                     self.labelStatus.text = "it's soo full"
+                    self.text = "Your beer is so full. Awesome!"
+                    self.speek(1)
                 default:
                     break
 				}
@@ -88,6 +100,19 @@ class MainViewController: UIViewController {
             return 4
         default: return -1
         }
+    }
+    
+    func speek(withDelay: Double) {
+        NSTimer.scheduledTimerWithTimeInterval(withDelay, target: self, selector: "speek", userInfo: nil, repeats: false)
+    }
+    
+    func speek() {
+        let utterance = AVSpeechUtterance(string: text!)
+        utterance.voice = AVSpeechSynthesisVoice(language: "en-US")
+        utterance.rate = 0.1
+        
+        let synthesizer = AVSpeechSynthesizer()
+        synthesizer.speakUtterance(utterance)
     }
 
 	override func viewDidLoad() {
