@@ -21,7 +21,7 @@ class ViewController: UIViewController {
 		CameraManager.sharedInstance.addPreviewLayerToView(self.preview)
 		CameraManager.sharedInstance.cameraDevice = .Front
         
-        _ = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "takeImage", userInfo: nil, repeats: true)
+        _ = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "takeImage", userInfo: nil, repeats: true)
 	}
     
     func takeImage() {
@@ -31,6 +31,13 @@ class ViewController: UIViewController {
                 let averageColor = image!.average()
                 self.averageColorView.backgroundColor =  averageColor
                 self.label.text = "R: \(CIColor(color: averageColor).red) G: \(CIColor(color: averageColor).green) B: \(CIColor(color: averageColor).blue)"
+                
+                var hue: CGFloat = 0.0
+                var sat: CGFloat = 0.0
+                var val: CGFloat = 0.0
+                var alp: CGFloat = 0.0
+                averageColor.getHue(&hue, saturation: &sat, brightness: &val, alpha: &alp);
+                
             }
         })
     }
