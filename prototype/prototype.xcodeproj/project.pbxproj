@@ -14,7 +14,7 @@
 		4B4E97EC1BED43EA003A672A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4B4E97EA1BED43EA003A672A /* LaunchScreen.storyboard */; };
 		4B4E97F71BED43EA003A672A /* prototypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4E97F61BED43EA003A672A /* prototypeTests.swift */; };
 		4B4E98021BED43EA003A672A /* prototypeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B4E98011BED43EA003A672A /* prototypeUITests.swift */; };
-		65D0ADC81BED593C00AA8ED3 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D0ADC71BED593C00AA8ED3 /* UIImage.swift */; settings = {ASSET_TAGS = (); }; };
+		65D0ADC81BED593C00AA8ED3 /* UIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 65D0ADC71BED593C00AA8ED3 /* UIImage.swift */; };
 		E8D1C7E2509BF2C53A8D158D /* Pods.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C3E1EA96F16248361E7AC69 /* Pods.framework */; };
 /* End PBXBuildFile section */
 
@@ -223,7 +223,7 @@
 				TargetAttributes = {
 					4B4E97DD1BED43EA003A672A = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = 3JMWW3SW7U;
+						DevelopmentTeam = A9F7R426YP;
 					};
 					4B4E97F11BED43EA003A672A = {
 						CreatedOnToolsVersion = 7.1;

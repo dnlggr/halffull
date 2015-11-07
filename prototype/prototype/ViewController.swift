@@ -11,6 +11,11 @@ import CameraManager
 
 class ViewController: UIViewController {
 	
+	private let device = UIDevice.currentDevice()
+	private let screen = UIScreen.mainScreen()
+	private var isSensorCovered = false
+	private let notificationCenter = NSNotificationCenter.defaultCenter()
+	
 	@IBOutlet weak var preview: UIView!
     @IBOutlet weak var pictureView: UIImageView!
     @IBOutlet weak var averageColorView: UIView!
@@ -20,11 +25,16 @@ class ViewController: UIViewController {
     
 	
 	@IBAction func tapButton(sender: UIButton) {
-		CameraManager.sharedInstance.addPreviewLayerToView(self.preview)
-		CameraManager.sharedInstance.cameraDevice = .Front
-        CameraManager.sharedInstance.writeFilesToPhoneLibrary = false
-        
-        NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "takeImage", userInfo: nil, repeats: true)
+        takeImage()
+	}
+	
+	func proximityChanged(sender: UIDevice) {
+		isSensorCovered = device.proximityState
+		
+		if (isSensorCovered) {
+			NSTimer.scheduledTimerWithTimeInterval(0.75, target: self, selector: "takeImage", userInfo: nil, repeats: false)
+//			device.proximityMonitoringEnabled = false
+		}
 	}
     
     func takeImage() {
@@ -48,7 +58,6 @@ class ViewController: UIViewController {
                 } else {
                     self.labelStatus.text = nil
                 }
-                
             }
         })
     }
@@ -56,13 +65,19 @@ class ViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.
+		
+		screen.wantsSoftwareDimming = false
+		device.proximityMonitoringEnabled = true
+		notificationCenter.addObserver(self, selector: "proximityChanged:", name: UIDeviceProximityStateDidChangeNotification, object: device)
+		
+		
+		CameraManager.sharedInstance.writeFilesToPhoneLibrary = false
+		CameraManager.sharedInstance.addPreviewLayerToView(self.preview)
+		CameraManager.sharedInstance.cameraDevice = .Front
 	}
 
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
-
-
 }
-
