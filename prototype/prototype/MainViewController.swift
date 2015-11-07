@@ -39,18 +39,20 @@ class MainViewController: UIViewController {
 				let averageColor = image!.average()
 				
 				self.percentage = self.superSecretColorToBeerFunction(averageColor)
-				switch self.superSecretColorToBeerFunction(averageColor) {
-					case let percent where percent <= 1:
-						self.labelStatus.text = "soo empty"
-					case let percent where percent > 1 && percent <= 25:
-						self.labelStatus.text = "almost empty"
-					case let percent where percent > 25 && percent <= 60:
-						self.labelStatus.text = "looks half full"
-					case let percent where percent > 60 && percent <= 90:
-						self.labelStatus.text = "looking pretty full"
-					case let percent where percent > 90:
-						self.labelStatus.text = "it's soo full"
-					default: break
+                let fullness = self.getFullness(averageColor)
+				switch fullness {
+                case 0:
+                    self.labelStatus.text = "soo empty"
+                case 1:
+                    self.labelStatus.text = "almost empty"
+                case 2:
+                    self.labelStatus.text = "looks half full"
+                case 3:
+                    self.labelStatus.text = "looking pretty full"
+                case 4:
+                    self.labelStatus.text = "it's soo full"
+                default:
+                    break
 				}
 			}
 		})
@@ -71,6 +73,22 @@ class MainViewController: UIViewController {
 			self.view.layoutIfNeeded()
 		}, completion: nil)
 	}
+    
+    func getFullness(averageColor: UIColor) -> Int {
+        switch self.superSecretColorToBeerFunction(averageColor) {
+        case let percent where percent <= 1:
+            return 0
+        case let percent where percent > 1 && percent <= 25:
+            return 1
+        case let percent where percent > 25 && percent <= 60:
+            return 2
+        case let percent where percent > 60 && percent <= 90:
+            return 3
+        case let percent where percent > 90:
+            return 4
+        default: return -1
+        }
+    }
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
