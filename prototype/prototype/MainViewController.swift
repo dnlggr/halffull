@@ -40,31 +40,31 @@ class MainViewController: UIViewController {
 			if image != nil {
 				let averageColor = image!.average()
 				
-				self.percentage = self.superSecretColorToBeerFunction(averageColor)
+				self.percentage = self.getFullness(averageColor) * 25
                 let fullness = self.getFullness(averageColor)
 				switch fullness {
-                case 0:
-                    self.labelStatus.text = "soo empty"
-                    self.text = "Your beer is so empty. Get another one already!"
-                    self.speek(1)
-                case 1:
-                    self.labelStatus.text = "almost empty"
-                    self.text = "Your beer is almost empty. Get another one!"
-                    self.speek(1)
-                case 2:
-                    self.labelStatus.text = "looks half full"
-                    self.text = "Your beer is half full. Looking good!"
-                    self.speek(1)
-                case 3:
-                    self.labelStatus.text = "looking pretty full"
-                    self.text = "Your beer is pretty full. Cheers!"
-                    self.speek(1)
-                case 4:
-                    self.labelStatus.text = "it's soo full"
-                    self.text = "Your beer is so full. Awesome!"
-                    self.speek(1)
-                default:
-                    break
+					case 0:
+						self.labelStatus.text = "soo empty"
+						self.text = "Your beer is so empty. Get another one already!"
+						self.speek(1)
+					case 1:
+						self.labelStatus.text = "almost empty"
+						self.text = "Your beer is almost empty. Get another one!"
+						self.speek(1)
+					case 2:
+						self.labelStatus.text = "looks half full"
+						self.text = "Your beer is half full. Looking good!"
+						self.speek(1)
+					case 3:
+						self.labelStatus.text = "looking pretty full"
+						self.text = "Your beer is pretty full. Cheers!"
+						self.speek(1)
+					case 4:
+						self.labelStatus.text = "it's soo full"
+						self.text = "Your beer is so full. Awesome!"
+						self.speek(1)
+					default:
+						break
 				}
 			}
 		})
@@ -78,7 +78,7 @@ class MainViewController: UIViewController {
 	}
 	
 	func fillAnimation(percentage: Int) {
-		let height = 200.0 - imageView.frame.height * (CGFloat(percentage) / 100)
+		let height = 384.0 - imageView.frame.height * (CGFloat(percentage) / 100)
 		
 		UIView.animateWithDuration(1.5, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
 			self.fillHeight.constant = -height
@@ -125,6 +125,9 @@ class MainViewController: UIViewController {
 		
 		CameraManager.sharedInstance.writeFilesToPhoneLibrary = false
 		CameraManager.sharedInstance.cameraDevice = .Front
+		
+		labelStatus.lineBreakMode = .ByWordWrapping
+		labelStatus.numberOfLines = 0
 	}
 	
 	override func didReceiveMemoryWarning() {

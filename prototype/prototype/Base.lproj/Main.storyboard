@@ -180,43 +180,61 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="JU4-6W-23m">
-                                <rect key="frame" x="200" y="36" width="200" height="200"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cjO-Ha-f2y">
+                                <rect key="frame" x="108" y="436" width="384" height="0.0"/>
                                 <animations/>
-                                <color key="backgroundColor" red="0.85740064540000005" green="0.19852298930000001" blue="0.1805550803" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="tintColor" red="0.85740064540000005" green="0.19852298930000001" blue="0.1805550803" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.98491078615188599" green="0.90584737062454224" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="IEK-NX-Sdh"/>
-                                    <constraint firstAttribute="width" constant="200" id="L3r-x0-4DG"/>
+                                    <constraint firstAttribute="width" constant="384" id="XXk-RA-ChW"/>
                                 </constraints>
-                            </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Status" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qs0-WS-NqP">
-                                <rect key="frame" x="275.5" y="244" width="49.5" height="20.5"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Hold your beer over the front camera" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qs0-WS-NqP">
+                                <rect key="frame" x="3" y="468" width="594" height="132"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="32"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cjO-Ha-f2y">
-                                <rect key="frame" x="200" y="236" width="200" height="0.0"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beer" translatesAutoresizingMaskIntoConstraints="NO" id="JU4-6W-23m">
+                                <rect key="frame" x="108" y="52" width="384" height="384"/>
                                 <animations/>
-                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="tintColor" red="0.99990516901016235" green="1" blue="0.99987047910690308" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="XXk-RA-ChW"/>
+                                    <constraint firstAttribute="height" constant="384" id="19w-mX-dVf"/>
+                                    <constraint firstAttribute="height" constant="200" id="IEK-NX-Sdh"/>
+                                    <constraint firstAttribute="width" constant="200" id="L3r-x0-4DG"/>
+                                    <constraint firstAttribute="width" constant="384" id="lya-iW-1s1"/>
                                 </constraints>
-                            </view>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="IEK-NX-Sdh"/>
+                                        <exclude reference="L3r-x0-4DG"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="qs0-WS-NqP" firstAttribute="top" secondItem="cjO-Ha-f2y" secondAttribute="bottom" constant="8" id="1cc-rD-GLA"/>
+                            <constraint firstItem="qs0-WS-NqP" firstAttribute="top" secondItem="cjO-Ha-f2y" secondAttribute="bottom" constant="32" id="1cc-rD-GLA"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="JU4-6W-23m" secondAttribute="trailing" id="4cx-tc-IrX"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="qs0-WS-NqP" secondAttribute="trailing" id="5AH-FN-gXI"/>
                             <constraint firstItem="qs0-WS-NqP" firstAttribute="centerX" secondItem="Bgv-Fl-fxM" secondAttribute="centerX" id="8PY-XT-KCZ"/>
-                            <constraint firstItem="qs0-WS-NqP" firstAttribute="top" secondItem="JU4-6W-23m" secondAttribute="bottom" constant="8" id="JZX-5H-B2M"/>
+                            <constraint firstItem="qs0-WS-NqP" firstAttribute="leading" secondItem="Bgv-Fl-fxM" secondAttribute="leadingMargin" id="COD-Ly-Vhv"/>
+                            <constraint firstItem="qs0-WS-NqP" firstAttribute="top" secondItem="JU4-6W-23m" secondAttribute="bottom" constant="32" id="JZX-5H-B2M"/>
+                            <constraint firstItem="JU4-6W-23m" firstAttribute="leading" secondItem="Bgv-Fl-fxM" secondAttribute="leadingMargin" id="KD9-MY-2Zh"/>
                             <constraint firstItem="cjO-Ha-f2y" firstAttribute="centerX" secondItem="Bgv-Fl-fxM" secondAttribute="centerX" id="LJe-8Q-xQS"/>
-                            <constraint firstItem="cjO-Ha-f2y" firstAttribute="height" secondItem="JU4-6W-23m" secondAttribute="height" constant="-200" id="O82-gN-ygf"/>
+                            <constraint firstItem="cjO-Ha-f2y" firstAttribute="height" secondItem="JU4-6W-23m" secondAttribute="height" constant="-384" id="O82-gN-ygf"/>
                             <constraint firstItem="JU4-6W-23m" firstAttribute="centerX" secondItem="Bgv-Fl-fxM" secondAttribute="centerX" id="RRR-oC-gQ0"/>
-                            <constraint firstItem="JU4-6W-23m" firstAttribute="top" secondItem="XpB-SF-JDL" secondAttribute="bottom" constant="16" id="XTz-st-7RW"/>
+                            <constraint firstItem="JU4-6W-23m" firstAttribute="top" secondItem="XpB-SF-JDL" secondAttribute="bottom" constant="32" id="XTz-st-7RW"/>
+                            <constraint firstItem="hxk-al-4uN" firstAttribute="top" secondItem="qs0-WS-NqP" secondAttribute="bottom" id="fuz-50-uZ3"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="4cx-tc-IrX"/>
+                                <exclude reference="KD9-MY-2Zh"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="fillHeight" destination="O82-gN-ygf" id="hDt-Ta-QWn"/>
@@ -230,4 +248,7 @@
             <point key="canvasLocation" x="1064" y="365"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="beer" width="256" height="256"/>
+    </resources>
 </document>
