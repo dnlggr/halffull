@@ -51,7 +51,20 @@ class ViewController: UIViewController {
                 
                 self.labelHsv.text = "H: \(String(format: "%.4f", Float(hue))) S: \(String(format: "%.4f", Float(sat))) V: \(String(format: "%.4f", Float(val)))"
 				
-				self.labelStatus.text = String(format: "%d Percent full", self.superSecretColorToBeerFunction(averageColor))
+//				self.labelStatus.text = String(format: "%d Percent full", self.superSecretColorToBeerFunction(averageColor))
+				switch self.superSecretColorToBeerFunction(averageColor) {
+					case let percent where percent <= 1:
+						self.labelStatus.text = "soo empty"
+					case let percent where percent > 1 && percent <= 25:
+						self.labelStatus.text = "almost empty"
+					case let percent where percent > 25 && percent <= 60:
+						self.labelStatus.text = "looks half full"
+					case let percent where percent > 60 && percent <= 90:
+						self.labelStatus.text = "looking pretty full"
+					case let percent where percent > 90:
+						self.labelStatus.text = "it's soo full"
+					default: break
+				}
             }
         })
     }
