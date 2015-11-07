@@ -51,7 +51,7 @@ class ViewController: UIViewController {
                 var alp: CGFloat = 0.0
                 averageColor.getHue(&hue, saturation: &sat, brightness: &val, alpha: &alp);
                 
-                self.labelHsv.text = "H: \(hue) S: \(sat) V: \(val)"
+                self.labelHsv.text = "H: \(String(format: "%.4f", Float(hue))) S: \(String(format: "%.4f", Float(sat))) V: \(String(format: "%.4f", Float(val)))"
                 
                 if sat > 0.9 {
                     self.labelStatus.text = "fully saturated"
