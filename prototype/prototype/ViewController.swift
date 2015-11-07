@@ -23,21 +23,16 @@ class ViewController: UIViewController {
 	@IBOutlet weak var proximityLabel: UILabel!
 	
 	@IBAction func tapButton(sender: AnyObject) {
-		start()
-	}
-	
-	private func start() {
-		CameraManager.sharedInstance.addPreviewLayerToView(self.preview)
-		CameraManager.sharedInstance.cameraDevice = .Front
-		
-		_ = NSTimer.scheduledTimerWithTimeInterval(1, target: self, selector: "takeImage", userInfo: nil, repeats: true)
+		takeImage()
 	}
 	
 	func proximityChanged(sender: UIDevice) {
 		isSensorCovered = device.proximityState
+		proximityLabel.text = "Proximity: \(isSensorCovered)"
 		
 		if (isSensorCovered) {
-			start()
+			NSTimer.scheduledTimerWithTimeInterval(0.75, target: self, selector: "takeImage", userInfo: nil, repeats: false)
+			device.proximityMonitoringEnabled = false
 		}
 	}
 	
@@ -61,13 +56,15 @@ class ViewController: UIViewController {
 		
 		device.proximityMonitoringEnabled = true
 		notificationCenter.addObserver(self, selector: "proximityChanged:", name: UIDeviceProximityStateDidChangeNotification, object: device)
+		
+		CameraManager.sharedInstance.writeFilesToPhoneLibrary = false
+		
+		CameraManager.sharedInstance.addPreviewLayerToView(self.preview)
+		CameraManager.sharedInstance.cameraDevice = .Front
 	}
 
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
-
-
 }
-
