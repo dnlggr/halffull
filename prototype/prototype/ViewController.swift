@@ -15,6 +15,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var pictureView: UIImageView!
     @IBOutlet weak var averageColorView: UIView!
     @IBOutlet weak var label: UILabel!
+    @IBOutlet weak var labelHsv: UILabel!
+    @IBOutlet weak var labelStatus: UILabel!
     
 	
 	@IBAction func tapButton(sender: UIButton) {
@@ -22,7 +24,7 @@ class ViewController: UIViewController {
 		CameraManager.sharedInstance.cameraDevice = .Front
         CameraManager.sharedInstance.writeFilesToPhoneLibrary = false
         
-        _ = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "takeImage", userInfo: nil, repeats: true)
+        NSTimer.scheduledTimerWithTimeInterval(0.5, target: self, selector: "takeImage", userInfo: nil, repeats: true)
 	}
     
     func takeImage() {
@@ -38,6 +40,14 @@ class ViewController: UIViewController {
                 var val: CGFloat = 0.0
                 var alp: CGFloat = 0.0
                 averageColor.getHue(&hue, saturation: &sat, brightness: &val, alpha: &alp);
+                
+                self.labelHsv.text = "H: \(hue) S: \(sat) V: \(val)"
+                
+                if sat > 0.9 {
+                    self.labelStatus.text = "fully saturated"
+                } else {
+                    self.labelStatus.text = nil
+                }
                 
             }
         })
