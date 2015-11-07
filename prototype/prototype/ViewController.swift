@@ -22,7 +22,6 @@ class ViewController: UIViewController {
     @IBOutlet weak var label: UILabel!
     @IBOutlet weak var labelHsv: UILabel!
     @IBOutlet weak var labelStatus: UILabel!
-    
 	
 	@IBAction func tapButton(sender: UIButton) {
         takeImage()
@@ -48,19 +47,21 @@ class ViewController: UIViewController {
                 var hue: CGFloat = 0.0
                 var sat: CGFloat = 0.0
                 var val: CGFloat = 0.0
-                var alp: CGFloat = 0.0
-                averageColor.getHue(&hue, saturation: &sat, brightness: &val, alpha: &alp);
+                averageColor.getHue(&hue, saturation: &sat, brightness: &val, alpha: nil);
                 
                 self.labelHsv.text = "H: \(String(format: "%.4f", Float(hue))) S: \(String(format: "%.4f", Float(sat))) V: \(String(format: "%.4f", Float(val)))"
-                
-                if sat > 0.9 {
-                    self.labelStatus.text = "fully saturated"
-                } else {
-                    self.labelStatus.text = nil
-                }
+				
+				self.labelStatus.text = String(format: "%d Percent full", self.superSecretColorToBeerFunction(averageColor))
             }
         })
     }
+	
+	func superSecretColorToBeerFunction(color: UIColor) -> Int {
+		var sat: CGFloat = 0.0
+		color.getHue(nil, saturation: &sat, brightness: nil, alpha: nil);
+		
+		return min(100, (Int) (pow(1.1 * sat, 2.7) * 100))
+	}
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -69,7 +70,6 @@ class ViewController: UIViewController {
 		screen.wantsSoftwareDimming = false
 		device.proximityMonitoringEnabled = true
 		notificationCenter.addObserver(self, selector: "proximityChanged:", name: UIDeviceProximityStateDidChangeNotification, object: device)
-		
 		
 		CameraManager.sharedInstance.writeFilesToPhoneLibrary = false
 		CameraManager.sharedInstance.addPreviewLayerToView(self.preview)
