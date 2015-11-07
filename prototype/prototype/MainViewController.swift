@@ -1,57 +1,39 @@
 //
-//  ViewController.swift
+//  MainViewController.swift
 //  prototype
 //
-//  Created by Jannik Siebert on 06/11/15.
+//  Created by Jannik Siebert on 07/11/15.
 //  Copyright © 2015 halffull. All rights reserved.
 //
 
 import UIKit
 import CameraManager
 
-class ViewController: UIViewController {
-	
+class MainViewController: UIViewController {
+
+	private var percentage: Int = 0
 	private let device = UIDevice.currentDevice()
 	private let screen = UIScreen.mainScreen()
 	private var isSensorCovered = false
 	private let notificationCenter = NSNotificationCenter.defaultCenter()
 	
-	@IBOutlet weak var preview: UIView!
-    @IBOutlet weak var pictureView: UIImageView!
-    @IBOutlet weak var averageColorView: UIView!
-    @IBOutlet weak var label: UILabel!
-    @IBOutlet weak var labelHsv: UILabel!
-    @IBOutlet weak var labelStatus: UILabel!
-	
-	@IBAction func tapButton(sender: UIButton) {
-        takeImage()
-	}
+	@IBOutlet weak var imageView: UIImageView!
+	@IBOutlet weak var labelStatus: UILabel!
 	
 	func proximityChanged(sender: UIDevice) {
 		isSensorCovered = device.proximityState
 		
 		if (isSensorCovered) {
 			NSTimer.scheduledTimerWithTimeInterval(0.75, target: self, selector: "takeImage", userInfo: nil, repeats: false)
-//			device.proximityMonitoringEnabled = false
 		}
 	}
-    
-    func takeImage() {
-        CameraManager.sharedInstance.capturePictureWithCompletition({ (image, error) in
-            if image != nil {
-                self.pictureView.image = image!
-                let averageColor = image!.average()
-                self.averageColorView.backgroundColor =  averageColor
-                self.label.text = "R: \(CIColor(color: averageColor).red) G: \(CIColor(color: averageColor).green) B: \(CIColor(color: averageColor).blue)"
-                
-                var hue: CGFloat = 0.0
-                var sat: CGFloat = 0.0
-                var val: CGFloat = 0.0
-                averageColor.getHue(&hue, saturation: &sat, brightness: &val, alpha: nil);
-                
-                self.labelHsv.text = "H: \(String(format: "%.4f", Float(hue))) S: \(String(format: "%.4f", Float(sat))) V: \(String(format: "%.4f", Float(val)))"
+	
+	func takeImage() {
+		CameraManager.sharedInstance.capturePictureWithCompletition({ (image, error) in
+			if image != nil {
+				let averageColor = image!.average()
 				
-//				self.labelStatus.text = String(format: "%d Percent full", self.superSecretColorToBeerFunction(averageColor))
+				//				self.labelStatus.text = String(format: "%d Percent full", self.superSecretColorToBeerFunction(averageColor))
 				switch self.superSecretColorToBeerFunction(averageColor) {
 					case let percent where percent <= 1:
 						self.labelStatus.text = "soo empty"
@@ -65,15 +47,36 @@ class ViewController: UIViewController {
 						self.labelStatus.text = "it's soo full"
 					default: break
 				}
-            }
-        })
-    }
+				
+				self.fillAnimation(self.superSecretColorToBeerFunction(averageColor))
+			}
+		})
+	}
 	
 	func superSecretColorToBeerFunction(color: UIColor) -> Int {
 		var sat: CGFloat = 0.0
 		color.getHue(nil, saturation: &sat, brightness: nil, alpha: nil);
 		
 		return min(100, (Int) (pow(1.1 * sat, 2.7) * 100))
+	}
+	
+	func fillAnimation(percentage: Int) {
+		let fill = UIView.init(frame: CGRectMake(self.imageView.frame.origin.x, self.imageView.frame.origin.y, self.imageView.frame.width, self.imageView.frame.height))
+		
+		fill.userInteractionEnabled = false;
+		fill.exclusiveTouch = false;
+		fill.backgroundColor = UIColor.blueColor()
+		
+		self.imageView.addSubview(fill)
+		
+//		UIView.animateWithDuration(2, animations: {
+////			var currentRect = fill.frame;
+////			currentRect.origin.y = 0;
+////			fill.alpha = 1
+////			fill.frame = currentRect
+////			self.imageView.sendSubviewToBack(fill)
+//		})
+		
 	}
 	
 	override func viewDidLoad() {
@@ -85,21 +88,20 @@ class ViewController: UIViewController {
 		notificationCenter.addObserver(self, selector: "proximityChanged:", name: UIDeviceProximityStateDidChangeNotification, object: device)
 		
 		CameraManager.sharedInstance.writeFilesToPhoneLibrary = false
-		CameraManager.sharedInstance.addPreviewLayerToView(self.preview)
 		CameraManager.sharedInstance.cameraDevice = .Front
 	}
-
+	
 	override func didReceiveMemoryWarning() {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
 	
-//	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-////		if (segue.identifier == "startMainViewController") {
-////			let dest = segue.destinationViewController as! MainViewController
-////			dest.percentage =
-////		}
-//		// Get the new view controller using segue.destinationViewController.
-//		// Pass the selected object to the new view controller.
-//	}
+	//	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+	////		if (segue.identifier == "startMainViewController") {
+	////			let dest = segue.destinationViewController as! MainViewController
+	////			dest.percentage =
+	////		}
+	//		// Get the new view controller using segue.destinationViewController.
+	//		// Pass the selected object to the new view controller.
+	//	}
 }
