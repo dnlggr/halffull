@@ -11,13 +11,15 @@ import CameraManager
 
 class MainViewController: UIViewController {
 
-	private var percentage: Int = 0
+	private var percentage: Int = -1
 	private let device = UIDevice.currentDevice()
 	private let screen = UIScreen.mainScreen()
 	private var isSensorCovered = false
 	private let notificationCenter = NSNotificationCenter.defaultCenter()
 	
 	@IBOutlet weak var imageView: UIImageView!
+	@IBOutlet weak var fillView: UIView!
+	@IBOutlet weak var fillHeight: NSLayoutConstraint!
 	@IBOutlet weak var labelStatus: UILabel!
 	
 	func proximityChanged(sender: UIDevice) {
@@ -25,6 +27,9 @@ class MainViewController: UIViewController {
 		
 		if (isSensorCovered) {
 			NSTimer.scheduledTimerWithTimeInterval(0.75, target: self, selector: "takeImage", userInfo: nil, repeats: false)
+		} else if (percentage != -1) {
+			self.fillAnimation(self.percentage)
+			self.percentage = -1
 		}
 	}
 	
@@ -33,7 +38,7 @@ class MainViewController: UIViewController {
 			if image != nil {
 				let averageColor = image!.average()
 				
-				//				self.labelStatus.text = String(format: "%d Percent full", self.superSecretColorToBeerFunction(averageColor))
+				self.percentage = self.superSecretColorToBeerFunction(averageColor)
 				switch self.superSecretColorToBeerFunction(averageColor) {
 					case let percent where percent <= 1:
 						self.labelStatus.text = "soo empty"
@@ -47,8 +52,6 @@ class MainViewController: UIViewController {
 						self.labelStatus.text = "it's soo full"
 					default: break
 				}
-				
-				self.fillAnimation(self.superSecretColorToBeerFunction(averageColor))
 			}
 		})
 	}
@@ -61,24 +64,14 @@ class MainViewController: UIViewController {
 	}
 	
 	func fillAnimation(percentage: Int) {
-		let fill = UIView.init(frame: CGRectMake(self.imageView.frame.origin.x, self.imageView.frame.origin.y, self.imageView.frame.width, self.imageView.frame.height))
+		let height = 200.0 - imageView.frame.height * (CGFloat(percentage) / 100)
 		
-		fill.userInteractionEnabled = false;
-		fill.exclusiveTouch = false;
-		fill.backgroundColor = UIColor.blueColor()
-		
-		self.imageView.addSubview(fill)
-		
-//		UIView.animateWithDuration(2, animations: {
-////			var currentRect = fill.frame;
-////			currentRect.origin.y = 0;
-////			fill.alpha = 1
-////			fill.frame = currentRect
-////			self.imageView.sendSubviewToBack(fill)
-//		})
-		
+		UIView.animateWithDuration(1.5, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+			self.fillHeight.constant = -height
+			self.view.layoutIfNeeded()
+		}, completion: nil)
 	}
-	
+
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Do any additional setup after loading the view, typically from a nib.

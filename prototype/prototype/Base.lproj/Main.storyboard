@@ -197,17 +197,30 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cjO-Ha-f2y">
+                                <rect key="frame" x="200" y="236" width="200" height="0.0"/>
+                                <animations/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="XXk-RA-ChW"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="qs0-WS-NqP" firstAttribute="top" secondItem="cjO-Ha-f2y" secondAttribute="bottom" constant="8" id="1cc-rD-GLA"/>
                             <constraint firstItem="qs0-WS-NqP" firstAttribute="centerX" secondItem="Bgv-Fl-fxM" secondAttribute="centerX" id="8PY-XT-KCZ"/>
                             <constraint firstItem="qs0-WS-NqP" firstAttribute="top" secondItem="JU4-6W-23m" secondAttribute="bottom" constant="8" id="JZX-5H-B2M"/>
+                            <constraint firstItem="cjO-Ha-f2y" firstAttribute="centerX" secondItem="Bgv-Fl-fxM" secondAttribute="centerX" id="LJe-8Q-xQS"/>
+                            <constraint firstItem="cjO-Ha-f2y" firstAttribute="height" secondItem="JU4-6W-23m" secondAttribute="height" constant="-200" id="O82-gN-ygf"/>
                             <constraint firstItem="JU4-6W-23m" firstAttribute="centerX" secondItem="Bgv-Fl-fxM" secondAttribute="centerX" id="RRR-oC-gQ0"/>
                             <constraint firstItem="JU4-6W-23m" firstAttribute="top" secondItem="XpB-SF-JDL" secondAttribute="bottom" constant="16" id="XTz-st-7RW"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="fillHeight" destination="O82-gN-ygf" id="hDt-Ta-QWn"/>
+                        <outlet property="fillView" destination="cjO-Ha-f2y" id="UMK-aX-Dgs"/>
                         <outlet property="imageView" destination="JU4-6W-23m" id="ZEe-oy-fjO"/>
                         <outlet property="labelStatus" destination="qs0-WS-NqP" id="bQ6-Uq-WgR"/>
                     </connections>
