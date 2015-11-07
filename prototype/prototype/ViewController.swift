@@ -20,6 +20,7 @@ class ViewController: UIViewController {
 	@IBAction func tapButton(sender: UIButton) {
 		CameraManager.sharedInstance.addPreviewLayerToView(self.preview)
 		CameraManager.sharedInstance.cameraDevice = .Front
+        CameraManager.sharedInstance.writeFilesToPhoneLibrary = false
         
         _ = NSTimer.scheduledTimerWithTimeInterval(1.0, target: self, selector: "takeImage", userInfo: nil, repeats: true)
 	}
