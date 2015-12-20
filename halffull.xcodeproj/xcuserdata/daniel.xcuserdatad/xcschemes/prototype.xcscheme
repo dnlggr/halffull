@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4B4E97DD1BED43EA003A672A"
-               BuildableName = "prototype.app"
-               BlueprintName = "prototype"
-               ReferencedContainer = "container:prototype.xcodeproj">
+               BuildableName = "halffull.app"
+               BlueprintName = "halffull"
+               ReferencedContainer = "container:halffull.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4B4E97F11BED43EA003A672A"
-               BuildableName = "prototypeTests.xctest"
-               BlueprintName = "prototypeTests"
-               ReferencedContainer = "container:prototype.xcodeproj">
+               BuildableName = "halffull.xctest"
+               BlueprintName = "halffullTests"
+               ReferencedContainer = "container:halffull.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4B4E97FC1BED43EA003A672A"
-               BuildableName = "prototypeUITests.xctest"
-               BlueprintName = "prototypeUITests"
-               ReferencedContainer = "container:prototype.xcodeproj">
+               BuildableName = "halffull.xctest"
+               BlueprintName = "halffullUITests"
+               ReferencedContainer = "container:halffull.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -53,9 +53,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4B4E97DD1BED43EA003A672A"
-            BuildableName = "prototype.app"
-            BlueprintName = "prototype"
-            ReferencedContainer = "container:prototype.xcodeproj">
+            BuildableName = "halffull.app"
+            BlueprintName = "halffull"
+            ReferencedContainer = "container:halffull.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4B4E97DD1BED43EA003A672A"
-            BuildableName = "prototype.app"
-            BlueprintName = "prototype"
-            ReferencedContainer = "container:prototype.xcodeproj">
+            BuildableName = "halffull.app"
+            BlueprintName = "halffull"
+            ReferencedContainer = "container:halffull.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -95,9 +95,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4B4E97DD1BED43EA003A672A"
-            BuildableName = "prototype.app"
-            BlueprintName = "prototype"
-            ReferencedContainer = "container:prototype.xcodeproj">
+            BuildableName = "halffull.app"
+            BlueprintName = "halffull"
+            ReferencedContainer = "container:halffull.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

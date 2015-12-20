@@ -15,5 +15,5 @@ This was created during the first [Stupid Hackathon](http://www.stupidhackathon.
 Because everyone needs a stupid [video](https://www.youtube.com/watch?v=DbSoIF4GWy0).
 
 ## Misc.
-The glass icon was created by Jonathan Gibson on the [Noun Project](https://thenounproject.com/term/pint-glass/13499).
+The icon is based on the work of Jonathan Gibson on the [Noun Project](https://thenounproject.com/term/pint-glass/13499).
 Thanks for that!

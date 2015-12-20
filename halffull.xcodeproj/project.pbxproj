@@ -39,17 +39,17 @@
 /* Begin PBXFileReference section */
 		391A836B45DF6BC8749B0291 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		3E1CF404921676BA3ACD9F3D /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
-		4B4E97DE1BED43EA003A672A /* prototype.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = prototype.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B4E97DE1BED43EA003A672A /* halffull.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = halffull.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B4E97E11BED43EA003A672A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4B4E97E31BED43EA003A672A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4B4E97E61BED43EA003A672A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4B4E97E81BED43EA003A672A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4B4E97EB1BED43EA003A672A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4B4E97ED1BED43EA003A672A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4B4E97F21BED43EA003A672A /* prototypeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = prototypeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B4E97F21BED43EA003A672A /* halffull.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = halffull.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B4E97F61BED43EA003A672A /* prototypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prototypeTests.swift; sourceTree = "<group>"; };
 		4B4E97F81BED43EA003A672A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4B4E97FD1BED43EA003A672A /* prototypeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = prototypeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4B4E97FD1BED43EA003A672A /* halffull.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = halffull.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4B4E98011BED43EA003A672A /* prototypeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = prototypeUITests.swift; sourceTree = "<group>"; };
 		4B4E98031BED43EA003A672A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4BD7CD4B1BEE338C00841095 /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -98,9 +98,9 @@
 		4B4E97DF1BED43EA003A672A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4B4E97DE1BED43EA003A672A /* prototype.app */,
-				4B4E97F21BED43EA003A672A /* prototypeTests.xctest */,
-				4B4E97FD1BED43EA003A672A /* prototypeUITests.xctest */,
+				4B4E97DE1BED43EA003A672A /* halffull.app */,
+				4B4E97F21BED43EA003A672A /* halffull.xctest */,
+				4B4E97FD1BED43EA003A672A /* halffull.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -158,9 +158,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4B4E97DD1BED43EA003A672A /* prototype */ = {
+		4B4E97DD1BED43EA003A672A /* halffull */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4B4E98061BED43EA003A672A /* Build configuration list for PBXNativeTarget "prototype" */;
+			buildConfigurationList = 4B4E98061BED43EA003A672A /* Build configuration list for PBXNativeTarget "halffull" */;
 			buildPhases = (
 				E57AF75D019512386AAD946A /* Check Pods Manifest.lock */,
 				4B4E97DA1BED43EA003A672A /* Sources */,
@@ -173,14 +173,14 @@
 			);
 			dependencies = (
 			);
-			name = prototype;
+			name = halffull;
 			productName = prototype;
-			productReference = 4B4E97DE1BED43EA003A672A /* prototype.app */;
+			productReference = 4B4E97DE1BED43EA003A672A /* halffull.app */;
 			productType = "com.apple.product-type.application";
 		};
-		4B4E97F11BED43EA003A672A /* prototypeTests */ = {
+		4B4E97F11BED43EA003A672A /* halffullTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4B4E98091BED43EA003A672A /* Build configuration list for PBXNativeTarget "prototypeTests" */;
+			buildConfigurationList = 4B4E98091BED43EA003A672A /* Build configuration list for PBXNativeTarget "halffullTests" */;
 			buildPhases = (
 				4B4E97EE1BED43EA003A672A /* Sources */,
 				4B4E97EF1BED43EA003A672A /* Frameworks */,
@@ -191,14 +191,14 @@
 			dependencies = (
 				4B4E97F41BED43EA003A672A /* PBXTargetDependency */,
 			);
-			name = prototypeTests;
+			name = halffullTests;
 			productName = prototypeTests;
-			productReference = 4B4E97F21BED43EA003A672A /* prototypeTests.xctest */;
+			productReference = 4B4E97F21BED43EA003A672A /* halffull.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		4B4E97FC1BED43EA003A672A /* prototypeUITests */ = {
+		4B4E97FC1BED43EA003A672A /* halffullUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4B4E980C1BED43EA003A672A /* Build configuration list for PBXNativeTarget "prototypeUITests" */;
+			buildConfigurationList = 4B4E980C1BED43EA003A672A /* Build configuration list for PBXNativeTarget "halffullUITests" */;
 			buildPhases = (
 				4B4E97F91BED43EA003A672A /* Sources */,
 				4B4E97FA1BED43EA003A672A /* Frameworks */,
@@ -209,9 +209,9 @@
 			dependencies = (
 				4B4E97FF1BED43EA003A672A /* PBXTargetDependency */,
 			);
-			name = prototypeUITests;
+			name = halffullUITests;
 			productName = prototypeUITests;
-			productReference = 4B4E97FD1BED43EA003A672A /* prototypeUITests.xctest */;
+			productReference = 4B4E97FD1BED43EA003A672A /* halffull.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -240,7 +240,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4B4E97D91BED43EA003A672A /* Build configuration list for PBXProject "prototype" */;
+			buildConfigurationList = 4B4E97D91BED43EA003A672A /* Build configuration list for PBXProject "halffull" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -253,9 +253,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4B4E97DD1BED43EA003A672A /* prototype */,
-				4B4E97F11BED43EA003A672A /* prototypeTests */,
-				4B4E97FC1BED43EA003A672A /* prototypeUITests */,
+				4B4E97DD1BED43EA003A672A /* halffull */,
+				4B4E97F11BED43EA003A672A /* halffullTests */,
+				4B4E97FC1BED43EA003A672A /* halffullUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -368,12 +368,12 @@
 /* Begin PBXTargetDependency section */
 		4B4E97F41BED43EA003A672A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4B4E97DD1BED43EA003A672A /* prototype */;
+			target = 4B4E97DD1BED43EA003A672A /* halffull */;
 			targetProxy = 4B4E97F31BED43EA003A672A /* PBXContainerItemProxy */;
 		};
 		4B4E97FF1BED43EA003A672A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 4B4E97DD1BED43EA003A672A /* prototype */;
+			target = 4B4E97DD1BED43EA003A672A /* halffull */;
 			targetProxy = 4B4E97FE1BED43EA003A672A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -490,7 +490,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = self.halffull.prototype;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = halffull;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
@@ -506,7 +506,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = self.halffull.prototype;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = halffull;
 				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
@@ -518,8 +518,8 @@
 				INFOPLIST_FILE = prototypeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = self.halffull.prototypeTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/prototype.app/prototype";
+				PRODUCT_NAME = halffull;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/halffull.app/halffull";
 			};
 			name = Debug;
 		};
@@ -530,8 +530,8 @@
 				INFOPLIST_FILE = prototypeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = self.halffull.prototypeTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/prototype.app/prototype";
+				PRODUCT_NAME = halffull;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/halffull.app/halffull";
 			};
 			name = Release;
 		};
@@ -541,7 +541,7 @@
 				INFOPLIST_FILE = prototypeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = self.halffull.prototypeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = halffull;
 				TEST_TARGET_NAME = prototype;
 				USES_XCTRUNNER = YES;
 			};
@@ -553,7 +553,7 @@
 				INFOPLIST_FILE = prototypeUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = self.halffull.prototypeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = halffull;
 				TEST_TARGET_NAME = prototype;
 				USES_XCTRUNNER = YES;
 			};
@@ -562,7 +562,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4B4E97D91BED43EA003A672A /* Build configuration list for PBXProject "prototype" */ = {
+		4B4E97D91BED43EA003A672A /* Build configuration list for PBXProject "halffull" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4B4E98041BED43EA003A672A /* Debug */,
@@ -571,7 +571,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4B4E98061BED43EA003A672A /* Build configuration list for PBXNativeTarget "prototype" */ = {
+		4B4E98061BED43EA003A672A /* Build configuration list for PBXNativeTarget "halffull" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4B4E98071BED43EA003A672A /* Debug */,
@@ -580,7 +580,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4B4E98091BED43EA003A672A /* Build configuration list for PBXNativeTarget "prototypeTests" */ = {
+		4B4E98091BED43EA003A672A /* Build configuration list for PBXNativeTarget "halffullTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4B4E980A1BED43EA003A672A /* Debug */,
@@ -589,7 +589,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4B4E980C1BED43EA003A672A /* Build configuration list for PBXNativeTarget "prototypeUITests" */ = {
+		4B4E980C1BED43EA003A672A /* Build configuration list for PBXNativeTarget "halffullUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4B4E980D1BED43EA003A672A /* Debug */,
