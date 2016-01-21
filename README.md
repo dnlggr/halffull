@@ -33,7 +33,8 @@ Because everyone needs a stupid [video](https://www.youtube.com/watch?v=DbSoIF4G
 
 Standing on the shoulders of giantly stupid hackathons:
 
-[stupidhackathon.com](http://www.stupidhackathon.com) [stupidhackathon.de](http://stupidhackathon.de)
+* [stupidhackathon.com](http://www.stupidhackathon.com)
+* [stupidhackathon.de](http://stupidhackathon.de)
 
 ## Misc.
 The icon is based on the work of Jonathan Gibson on the [Noun Project](https://thenounproject.com/term/pint-glass/13499).
