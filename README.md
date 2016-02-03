@@ -39,3 +39,6 @@ Standing on the shoulders of giantly stupid hackathons:
 ## Misc.
 The icon is based on the work of Jonathan Gibson on the [Noun Project](https://thenounproject.com/term/pint-glass/13499).
 Thanks for that!
+
+## Disclamer
+Since this project was developed during a [Stupid Hackathon](http://www.stupidhackathon.at) it is obviously ironic and not to be taken seriously. Or is it?
