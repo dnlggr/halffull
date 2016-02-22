@@ -12,6 +12,8 @@ Halffull utilizes break through technology to do all kinds of beer related stuff
 You can place your beer on the phone and it will tell you how full your glass is. 
 This was created during the first [Stupid Hackathon](http://www.stupidhackathon.at) in Innsbruck, Austria. 
 
+Since this project was developed during a *Stupid Hackathon* it is obviously meant ironic and not to be taken seriously. Or is it?
+
 <br>
 
 ![halfful overview](https://raw.githubusercontent.com/danieldenkt/halffull/635e958e5246d7d065c5f4f4450a38c325ae8ab6/Resources/halffull-overview.png)
@@ -39,6 +41,3 @@ Standing on the shoulders of giantly stupid hackathons:
 ## Misc.
 The icon is based on the work of Jonathan Gibson on the [Noun Project](https://thenounproject.com/term/pint-glass/13499).
 Thanks for that!
-
-## Disclamer
-Since this project was developed during a [Stupid Hackathon](http://www.stupidhackathon.at) it is obviously ironic and not to be taken seriously. Or is it?
