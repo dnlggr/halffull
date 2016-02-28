@@ -25,6 +25,7 @@ Because everyone needs a stupid [video](https://www.youtube.com/watch?v=DbSoIF4G
 
 ## Press & Links
 * [Stupid Hackathon](http://www.stupidhackathon.at)
+* [6020 Stadtmagazin](https://www.6020online.at/ausgaben/dezember-2015/stupid-is-hard/)
 * [Institute of Computer Science - University of Innsbruck](http://informatik.uibk.ac.at/en/stupid-hackathon-die-verruecktesten-ideen-tirols/)
 * [STOCK EINS Coworking](http://www.diebaeckerei.at/kollektive-vereine-hausgeister/stock-eins-coworking.html)
 * [Fotoblog Universität Innsbruck](http://www.uibk.ac.at/ipoint/fotoblog/1.-stupid-hackathon-in-innsbruck/#01.jpg)
