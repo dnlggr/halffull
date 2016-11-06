@@ -2,5 +2,8 @@
 platform :ios, '8.0'
 use_frameworks!
 
-pod 'CameraManager', '~> 2.0’
+target 'halffull' do
 
+    pod 'CameraManager', '~> 3.0'
+
+end
