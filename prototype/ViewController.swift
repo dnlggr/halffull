@@ -11,10 +11,12 @@ import CameraManager
 
 class ViewController: UIViewController {
 	
-	private let device = UIDevice.currentDevice()
-	private let screen = UIScreen.mainScreen()
-	private var isSensorCovered = false
-	private let notificationCenter = NSNotificationCenter.defaultCenter()
+	fileprivate let device = UIDevice.current
+	fileprivate let screen = UIScreen.main
+	fileprivate var isSensorCovered = false
+	fileprivate let notificationCenter = NotificationCenter.default
+    
+    let cameraManager = CameraManager()
 	
 	@IBOutlet weak var preview: UIView!
     @IBOutlet weak var pictureView: UIImageView!
@@ -23,21 +25,21 @@ class ViewController: UIViewController {
     @IBOutlet weak var labelHsv: UILabel!
     @IBOutlet weak var labelStatus: UILabel!
 	
-	@IBAction func tapButton(sender: UIButton) {
+	@IBAction func tapButton(_ sender: UIButton) {
         takeImage()
 	}
 	
-	func proximityChanged(sender: UIDevice) {
+	func proximityChanged(_ sender: UIDevice) {
 		isSensorCovered = device.proximityState
 		
 		if (isSensorCovered) {
-			NSTimer.scheduledTimerWithTimeInterval(0.75, target: self, selector: "takeImage", userInfo: nil, repeats: false)
+			Timer.scheduledTimer(timeInterval: 0.75, target: self, selector: #selector(ViewController.takeImage), userInfo: nil, repeats: false)
 //			device.proximityMonitoringEnabled = false
 		}
 	}
     
     func takeImage() {
-        CameraManager.sharedInstance.capturePictureWithCompletition({ (image, error) in
+        cameraManager.capturePictureWithCompletion({ (image: UIImage?, error: NSError?) in
             if image != nil {
                 self.pictureView.image = image!
                 let averageColor = image!.average()
@@ -69,7 +71,7 @@ class ViewController: UIViewController {
         })
     }
 	
-	func superSecretColorToBeerFunction(color: UIColor) -> Int {
+	func superSecretColorToBeerFunction(_ color: UIColor) -> Int {
 		var sat: CGFloat = 0.0
 		color.getHue(nil, saturation: &sat, brightness: nil, alpha: nil);
 		
@@ -81,12 +83,12 @@ class ViewController: UIViewController {
 		// Do any additional setup after loading the view, typically from a nib.
 		
 		screen.wantsSoftwareDimming = false
-		device.proximityMonitoringEnabled = true
-		notificationCenter.addObserver(self, selector: "proximityChanged:", name: UIDeviceProximityStateDidChangeNotification, object: device)
+		device.isProximityMonitoringEnabled = true
+		notificationCenter.addObserver(self, selector: #selector(ViewController.proximityChanged(_:)), name: Notification.Name.UIDeviceProximityStateDidChange, object: device)
 		
-		CameraManager.sharedInstance.writeFilesToPhoneLibrary = false
-		CameraManager.sharedInstance.addPreviewLayerToView(self.preview)
-		CameraManager.sharedInstance.cameraDevice = .Front
+		cameraManager.writeFilesToPhoneLibrary = false
+		cameraManager.addPreviewLayerToView(self.preview)
+		cameraManager.cameraDevice = .front
 	}
 
 	override func didReceiveMemoryWarning() {

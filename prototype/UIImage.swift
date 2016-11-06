@@ -11,12 +11,12 @@ import UIKit
 
 extension UIImage {
     func average() -> UIColor {
-        var bitmap = [UInt8](count: 4, repeatedValue: 0)
+        var bitmap = [UInt8](repeating: 0, count: 4)
         
         if #available(iOS 9.0, *) {
             // Get average color.
             let context = CIContext()
-            let inputImage = CIImage ?? CoreImage.CIImage(CGImage: CGImage!)
+            let inputImage = ciImage ?? CoreImage.CIImage(cgImage: cgImage!)
             let extent = inputImage.extent
             let inputExtent = CIVector(x: extent.origin.x, y: extent.origin.y, z: extent.size.width, w: extent.size.height)
             let filter = CIFilter(name: "CIAreaAverage", withInputParameters: [kCIInputImageKey: inputImage, kCIInputExtentKey: inputExtent])!
@@ -28,11 +28,11 @@ extension UIImage {
             context.render(outputImage, toBitmap: &bitmap, rowBytes: 4, bounds: CGRect(x: 0, y: 0, width: 1, height: 1), format: kCIFormatRGBA8, colorSpace: CGColorSpaceCreateDeviceRGB())
         } else {
             // Create 1x1 context that interpolates pixels when drawing to it.
-            let context = CGBitmapContextCreate(&bitmap, 1, 1, 8, 4, CGColorSpaceCreateDeviceRGB(), CGBitmapInfo.ByteOrderDefault.rawValue | CGImageAlphaInfo.PremultipliedLast.rawValue)!
-            let inputImage = CGImage ?? CIContext().createCGImage(CIImage!, fromRect: CIImage!.extent)
+            let context = CGContext(data: &bitmap, width: 1, height: 1, bitsPerComponent: 8, bytesPerRow: 4, space: CGColorSpaceCreateDeviceRGB(), bitmapInfo: CGBitmapInfo().rawValue | CGImageAlphaInfo.premultipliedLast.rawValue)!
+            let inputImage = cgImage ?? CIContext().createCGImage(ciImage!, from: ciImage!.extent)
             
             // Render to bitmap.
-            CGContextDrawImage(context, CGRect(x: 0, y: 0, width: 1, height: 1), inputImage)
+            context.draw(inputImage!, in: CGRect(x: 0, y: 0, width: 1, height: 1))
         }
         
         // Compute result.

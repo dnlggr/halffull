@@ -203,6 +203,7 @@
 					4B4E97DD1BED43EA003A672A = {
 						CreatedOnToolsVersion = 7.1;
 						DevelopmentTeam = 3JMWW3SW7U;
+						LastSwiftMigration = 0800;
 					};
 					4B4E97F11BED43EA003A672A = {
 						CreatedOnToolsVersion = 7.1;
@@ -466,6 +467,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.dnlggr.halfful;
 				PRODUCT_NAME = halffull;
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -482,6 +484,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = xyz.dnlggr.halfful;
 				PRODUCT_NAME = halffull;
 				PROVISIONING_PROFILE = "";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
