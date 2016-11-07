@@ -19,7 +19,7 @@ class MainViewController: UIViewController {
 	fileprivate let notificationCenter = NotificationCenter.default
     fileprivate var text: String?
     
-    let cameraManager = CameraManager()
+    fileprivate var cameraManager: CameraManager?
 	
 	@IBOutlet weak var imageView: UIImageView!
 	@IBOutlet weak var fillView: UIView!
@@ -28,7 +28,6 @@ class MainViewController: UIViewController {
 	
 	func proximityChanged(_ sender: UIDevice) {
 		isSensorCovered = device.proximityState
-		
 		if (isSensorCovered) {
 			Timer.scheduledTimer(timeInterval: 0.75, target: self, selector: #selector(MainViewController.takeImage), userInfo: nil, repeats: false)
 		} else if (percentage != -1) {
@@ -38,7 +37,7 @@ class MainViewController: UIViewController {
 	}
 	
 	func takeImage() {
-        cameraManager.capturePictureWithCompletion({ (image:UIImage?, error: NSError?) in
+        cameraManager!.capturePictureWithCompletion({ (image:UIImage?, error: NSError?) in
 			if image != nil {
 				let averageColor = image!.average()
 				
@@ -125,8 +124,13 @@ class MainViewController: UIViewController {
 		device.isProximityMonitoringEnabled = true
 		notificationCenter.addObserver(self, selector: #selector(MainViewController.proximityChanged(_:)), name: Notification.Name.UIDeviceProximityStateDidChange, object: device)
         
-        cameraManager.writeFilesToPhoneLibrary = false
-        cameraManager.cameraDevice = .front
+        // Setup camera manager
+        cameraManager = CameraManager()
+        _ = cameraManager!.addPreviewLayerToView(UIView())
+        cameraManager!.writeFilesToPhoneLibrary = false
+        cameraManager!.cameraDevice = .front
+        cameraManager!.cameraOutputMode = .stillImage
+        cameraManager!.cameraOutputQuality = .medium
 		
 		labelStatus.lineBreakMode = .byWordWrapping
 		labelStatus.numberOfLines = 0
@@ -136,13 +140,4 @@ class MainViewController: UIViewController {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
-	
-	//	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-	////		if (segue.identifier == "startMainViewController") {
-	////			let dest = segue.destinationViewController as! MainViewController
-	////			dest.percentage =
-	////		}
-	//		// Get the new view controller using segue.destinationViewController.
-	//		// Pass the selected object to the new view controller.
-	//	}
 }
