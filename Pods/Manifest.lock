@@ -1,10 +1,12 @@
 PODS:
-  - CameraManager (2.0.1)
+  - CameraManager (3.0.0)
 
 DEPENDENCIES:
-  - CameraManager (~> 2.0)
+  - CameraManager (~> 3.0)
 
 SPEC CHECKSUMS:
-  CameraManager: b7a2016bd898ef1d155450ef924248ceb15a4837
+  CameraManager: 8b92bc0ab51b598d9a4c01998bc9f1efb9b681bf
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: a9a08da4c63f110140d1347815f0838ffb95a40c
+
+COCOAPODS: 1.1.1

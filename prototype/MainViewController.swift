@@ -12,23 +12,24 @@ import AVFoundation
 
 class MainViewController: UIViewController {
 
-	private var percentage: Int = -1
-	private let device = UIDevice.currentDevice()
-	private let screen = UIScreen.mainScreen()
-	private var isSensorCovered = false
-	private let notificationCenter = NSNotificationCenter.defaultCenter()
-    private var text: String?
+	fileprivate var percentage: Int = -1
+	fileprivate let device = UIDevice.current
+	fileprivate let screen = UIScreen.main
+	fileprivate var isSensorCovered = false
+	fileprivate let notificationCenter = NotificationCenter.default
+    fileprivate var text: String?
+    
+    fileprivate var cameraManager: CameraManager?
 	
 	@IBOutlet weak var imageView: UIImageView!
 	@IBOutlet weak var fillView: UIView!
 	@IBOutlet weak var fillHeight: NSLayoutConstraint!
 	@IBOutlet weak var labelStatus: UILabel!
 	
-	func proximityChanged(sender: UIDevice) {
+	func proximityChanged(_ sender: UIDevice) {
 		isSensorCovered = device.proximityState
-		
 		if (isSensorCovered) {
-			NSTimer.scheduledTimerWithTimeInterval(0.75, target: self, selector: "takeImage", userInfo: nil, repeats: false)
+			Timer.scheduledTimer(timeInterval: 0.75, target: self, selector: #selector(MainViewController.takeImage), userInfo: nil, repeats: false)
 		} else if (percentage != -1) {
 			self.fillAnimation(self.percentage)
 			self.percentage = -1
@@ -36,7 +37,7 @@ class MainViewController: UIViewController {
 	}
 	
 	func takeImage() {
-		CameraManager.sharedInstance.capturePictureWithCompletition({ (image, error) in
+        cameraManager!.capturePictureWithCompletion({ (image:UIImage?, error: NSError?) in
 			if image != nil {
 				let averageColor = image!.average()
 				
@@ -70,23 +71,23 @@ class MainViewController: UIViewController {
 		})
 	}
 	
-	func superSecretColorToBeerFunction(color: UIColor) -> Int {
+	func superSecretColorToBeerFunction(_ color: UIColor) -> Int {
 		var sat: CGFloat = 0.0
 		color.getHue(nil, saturation: &sat, brightness: nil, alpha: nil);
 		
 		return min(100, (Int) (pow(1.1 * sat, 2.7) * 100))
 	}
 	
-	func fillAnimation(percentage: Int) {
+	func fillAnimation(_ percentage: Int) {
 		let height = 384.0 - imageView.frame.height * (CGFloat(percentage) / 100)
 		
-		UIView.animateWithDuration(1.5, delay: 0.0, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+		UIView.animate(withDuration: 1.5, delay: 0.0, options: UIViewAnimationOptions.curveEaseOut, animations: {
 			self.fillHeight.constant = -height
 			self.view.layoutIfNeeded()
 		}, completion: nil)
 	}
     
-    func getFullness(averageColor: UIColor) -> Int {
+    func getFullness(_ averageColor: UIColor) -> Int {
         switch self.superSecretColorToBeerFunction(averageColor) {
         case let percent where percent <= 1:
             return 0
@@ -102,8 +103,8 @@ class MainViewController: UIViewController {
         }
     }
     
-    func speek(withDelay: Double) {
-        NSTimer.scheduledTimerWithTimeInterval(withDelay, target: self, selector: "speek", userInfo: nil, repeats: false)
+    func speek(_ withDelay: Double) {
+        Timer.scheduledTimer(timeInterval: withDelay, target: self, selector: #selector(MainViewController.speek as (MainViewController) -> () -> ()), userInfo: nil, repeats: false)
     }
     
     func speek() {
@@ -112,7 +113,7 @@ class MainViewController: UIViewController {
         utterance.rate = 0.1
         
         let synthesizer = AVSpeechSynthesizer()
-        synthesizer.speakUtterance(utterance)
+        synthesizer.speak(utterance)
     }
 
 	override func viewDidLoad() {
@@ -120,13 +121,23 @@ class MainViewController: UIViewController {
 		// Do any additional setup after loading the view, typically from a nib.
 		
 		screen.wantsSoftwareDimming = false
-		device.proximityMonitoringEnabled = true
-		notificationCenter.addObserver(self, selector: "proximityChanged:", name: UIDeviceProximityStateDidChangeNotification, object: device)
+		device.isProximityMonitoringEnabled = true
+		notificationCenter.addObserver(self, selector: #selector(MainViewController.proximityChanged(_:)), name: Notification.Name.UIDeviceProximityStateDidChange, object: device)
+        
+        // Setup camera manager
+        cameraManager = CameraManager()
+        _ = cameraManager!.addPreviewLayerToView(UIView())
+        cameraManager!.writeFilesToPhoneLibrary = false
+        cameraManager!.cameraDevice = .front
+        cameraManager!.cameraOutputMode = .stillImage
+        cameraManager!.cameraOutputQuality = .medium
+        
+        // Setup gesture recognizer
+        let gestureRecognizerDebugScreen = UITapGestureRecognizer(target: self, action: #selector(self.showDebugScreen(_:)))
+        gestureRecognizerDebugScreen.numberOfTapsRequired = 5
+        self.view.addGestureRecognizer(gestureRecognizerDebugScreen)
 		
-		CameraManager.sharedInstance.writeFilesToPhoneLibrary = false
-		CameraManager.sharedInstance.cameraDevice = .Front
-		
-		labelStatus.lineBreakMode = .ByWordWrapping
+		labelStatus.lineBreakMode = .byWordWrapping
 		labelStatus.numberOfLines = 0
 	}
 	
@@ -134,13 +145,12 @@ class MainViewController: UIViewController {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
-	
-	//	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-	////		if (segue.identifier == "startMainViewController") {
-	////			let dest = segue.destinationViewController as! MainViewController
-	////			dest.percentage =
-	////		}
-	//		// Get the new view controller using segue.destinationViewController.
-	//		// Pass the selected object to the new view controller.
-	//	}
+    
+    // MARK: Navigation
+    
+    func showDebugScreen(_ sender: UITapGestureRecognizer?) {
+        self.performSegue(withIdentifier: "showDebugScreen", sender: self)
+    }
+    
+    @IBAction func unwindToBeerScreen(segue: UIStoryboardSegue) {}
 }
