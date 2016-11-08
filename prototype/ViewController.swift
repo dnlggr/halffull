@@ -96,12 +96,8 @@ class ViewController: UIViewController {
 		// Dispose of any resources that can be recreated.
 	}
 	
-//	override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-////		if (segue.identifier == "startMainViewController") {
-////			let dest = segue.destinationViewController as! MainViewController
-////			dest.percentage =
-////		}
-//		// Get the new view controller using segue.destinationViewController.
-//		// Pass the selected object to the new view controller.
-//	}
+    // MARK: Navigation
+    
+    @IBAction func unwindToDebugScreen(segue: UIStoryboardSegue) {}
+    
 }

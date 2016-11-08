@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11542" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5in-8e-byn">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -127,14 +127,6 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="56n-bZ-ywB"/>
-                                <exclude reference="HKl-un-y50"/>
-                                <exclude reference="ZHh-0K-BQD"/>
-                                <exclude reference="gwr-jF-ar7"/>
-                                <exclude reference="lAJ-JN-5Ox"/>
-                                <exclude reference="tZG-Dz-jr5"/>
-                                <exclude reference="XFw-Bu-Mri"/>
-                                <exclude reference="3Yo-Q7-7Jg"/>
                                 <exclude reference="2U8-8f-yUg"/>
                                 <exclude reference="5MY-5u-FCQ"/>
                                 <exclude reference="5x9-Yg-E3L"/>
@@ -144,6 +136,14 @@
                                 <exclude reference="o5O-n6-WRB"/>
                                 <exclude reference="zxC-mF-Zij"/>
                                 <exclude reference="zzy-zG-1wO"/>
+                                <exclude reference="3Yo-Q7-7Jg"/>
+                                <exclude reference="56n-bZ-ywB"/>
+                                <exclude reference="HKl-un-y50"/>
+                                <exclude reference="ZHh-0K-BQD"/>
+                                <exclude reference="gwr-jF-ar7"/>
+                                <exclude reference="lAJ-JN-5Ox"/>
+                                <exclude reference="tZG-Dz-jr5"/>
+                                <exclude reference="XFw-Bu-Mri"/>
                                 <exclude reference="7ga-NG-Iqi"/>
                                 <exclude reference="AHy-Fg-J2V"/>
                                 <exclude reference="bNE-K0-TA2"/>
@@ -177,7 +177,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cjO-Ha-f2y">
-                                <rect key="frame" x="-4.5" y="436" width="384" height="0.0"/>
+                                <rect key="frame" x="-5" y="436" width="385" height="0.0"/>
                                 <color key="backgroundColor" red="0.97884678840637207" green="0.89748907089233398" blue="0.038696140050888062" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="384" id="XXk-RA-ChW"/>
@@ -190,7 +190,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="beer" translatesAutoresizingMaskIntoConstraints="NO" id="JU4-6W-23m">
-                                <rect key="frame" x="-4.5" y="52" width="384" height="384"/>
+                                <rect key="frame" x="-5" y="52" width="385" height="384"/>
                                 <color key="tintColor" red="0.99988770484924316" green="0.99998235702514648" blue="0.99982792139053345" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <gestureRecognizers/>
                                 <constraints>
@@ -234,11 +234,13 @@
                         <outlet property="fillView" destination="cjO-Ha-f2y" id="UMK-aX-Dgs"/>
                         <outlet property="imageView" destination="JU4-6W-23m" id="ZEe-oy-fjO"/>
                         <outlet property="labelStatus" destination="qs0-WS-NqP" id="bQ6-Uq-WgR"/>
+                        <segue destination="tKN-pl-dvK" kind="unwind" identifier="unwindToDebugScreen" unwindAction="unwindToDebugScreenWithSegue:" id="g4C-i8-j9O"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hWN-BY-8gK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="tKN-pl-dvK" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1064" y="365"/>
+            <point key="canvasLocation" x="337" y="1192"/>
         </scene>
     </scenes>
     <resources>

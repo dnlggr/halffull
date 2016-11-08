@@ -149,6 +149,6 @@ class MainViewController: UIViewController {
     // MARK: Navigation
     
     func goToDebugScreen(_ sender: UITapGestureRecognizer?) {
-        print("DEBUG")
+        self.performSegue(withIdentifier: "unwindToDebugScreen", sender:self)
     }
 }
