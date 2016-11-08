@@ -131,6 +131,11 @@ class MainViewController: UIViewController {
         cameraManager!.cameraDevice = .front
         cameraManager!.cameraOutputMode = .stillImage
         cameraManager!.cameraOutputQuality = .medium
+        
+        // Setup gesture recognizer
+        let gestureRecognizerDebugScreen = UITapGestureRecognizer(target: self, action: #selector(self.goToDebugScreen(_:)))
+        gestureRecognizerDebugScreen.numberOfTapsRequired = 5
+        self.view.addGestureRecognizer(gestureRecognizerDebugScreen)
 		
 		labelStatus.lineBreakMode = .byWordWrapping
 		labelStatus.numberOfLines = 0
@@ -140,4 +145,10 @@ class MainViewController: UIViewController {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
+    
+    // MARK: Navigation
+    
+    func goToDebugScreen(_ sender: UITapGestureRecognizer?) {
+        print("DEBUG")
+    }
 }
