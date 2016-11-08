@@ -95,9 +95,10 @@ class ViewController: UIViewController {
 		super.didReceiveMemoryWarning()
 		// Dispose of any resources that can be recreated.
 	}
-	
+    
     // MARK: Navigation
-    
-    @IBAction func unwindToDebugScreen(segue: UIStoryboardSegue) {}
-    
+
+    @IBAction func buttonStartPressed(_ sender: Any) {
+        self.performSegue(withIdentifier: "unwindToBeerScreen", sender: self)
+    }
 }

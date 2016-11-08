@@ -133,7 +133,7 @@ class MainViewController: UIViewController {
         cameraManager!.cameraOutputQuality = .medium
         
         // Setup gesture recognizer
-        let gestureRecognizerDebugScreen = UITapGestureRecognizer(target: self, action: #selector(self.goToDebugScreen(_:)))
+        let gestureRecognizerDebugScreen = UITapGestureRecognizer(target: self, action: #selector(self.showDebugScreen(_:)))
         gestureRecognizerDebugScreen.numberOfTapsRequired = 5
         self.view.addGestureRecognizer(gestureRecognizerDebugScreen)
 		
@@ -148,7 +148,9 @@ class MainViewController: UIViewController {
     
     // MARK: Navigation
     
-    func goToDebugScreen(_ sender: UITapGestureRecognizer?) {
-        self.performSegue(withIdentifier: "unwindToDebugScreen", sender:self)
+    func showDebugScreen(_ sender: UITapGestureRecognizer?) {
+        self.performSegue(withIdentifier: "showDebugScreen", sender: self)
     }
+    
+    @IBAction func unwindToBeerScreen(segue: UIStoryboardSegue) {}
 }
