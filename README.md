@@ -16,6 +16,8 @@ Since this project was developed during a *Stupid Hackathon* it is obviously mea
 
 *Update Nov. 2016:* The app has been updated to run on iOS 10 and show the beer screen by default but the original code is still as it was lovingly hand crafted during the hackathon.
 
+*Update Aug. 2017:* The app's dependencies have been updated to fix a crash during app startup but the original code is still as it was lovingly hand crafted during the hackathon.
+
 <br>
 
 ![halfful overview](https://raw.githubusercontent.com/danieldenkt/halffull/635e958e5246d7d065c5f4f4450a38c325ae8ab6/Resources/halffull-overview.png)
